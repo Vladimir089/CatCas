@@ -312,7 +312,9 @@ class HomeViewController: UIViewController {
     }
     
     @objc func seeAllGames() {
-        print("all")
+        let vc = ListGamesViewController()
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func openFullAnalyce() {
@@ -365,19 +367,26 @@ class HomeViewController: UIViewController {
             }
             
             collection?.reloadData()
-            let progress: Float = Float(gamesArr.count) / Float(win)
+            let progress: Float =  Float(win) / Float(gamesArr.count)
             progressView.setProgress(to: progress)
             topStatLabel?.text = "\(win)"
             botStatLabel?.text = "\(lose)"
-            let biggestWon = gamesArr.filter({ $0.result })
+            let biggestWon:Int = gamesArr.filter({ $0.result })
                 .map({ $0.amount })
-                .max()
-            let biggestLose =  gamesArr.filter({ $0.result == false })
+                .max() ?? 0
+            let biggestLose:Int =  gamesArr.filter({ $0.result == false })
                 .map({ $0.amount })
-                .max()
+                .max() ?? 0
             biggestWonLabel?.text = "$ \(biggestWon)"
             biggestLostLabel?.text = "-$ \(biggestLose)"
            
+        } else {
+            collection?.reloadData()
+            biggestWonLabel?.text = "$ 0"
+            biggestLostLabel?.text = "-$ 0"
+            progressView.setProgress(to: 0)
+            topStatLabel?.text = "0"
+            botStatLabel?.text = "0"
         }
     }
     
@@ -399,7 +408,135 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if twoLastGamesArray.count > 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "1", for: indexPath)
             cell.subviews.forEach { $0.removeFromSuperview() }
-            cell.backgroundColor = .red
+            cell.backgroundColor = .white.withAlphaComponent(0.05)
+            cell.layer.cornerRadius = 12
+            
+            let leftView = UIView()
+            leftView.layer.cornerRadius = 12
+            leftView.backgroundColor = .white.withAlphaComponent(0.05)
+            cell.addSubview(leftView)
+            leftView.snp.makeConstraints { make in
+                make.left.equalToSuperview().inset(15)
+                make.top.bottom.equalToSuperview().inset(15)
+                make.width.equalTo(56)
+            }
+            let imageView = UIImageView(image: .loss.withRenderingMode(.alwaysTemplate))
+            leftView.addSubview(imageView)
+            imageView.snp.makeConstraints { make in
+                make.height.equalTo(13)
+                make.width.equalTo(19)
+                make.center.equalToSuperview()
+            }
+            
+            let amountLabel = UILabel()
+            amountLabel.text = "The amount:"
+            amountLabel.textColor = .white
+            amountLabel.font = .systemFont(ofSize: 17, weight: .bold)
+            cell.addSubview(amountLabel)
+            amountLabel.snp.makeConstraints { make in
+                make.top.equalToSuperview().inset(15)
+                make.left.equalTo(leftView.snp.right).inset(-15)
+            }
+            
+            let numberLabel = UILabel()
+            numberLabel.font = .systemFont(ofSize: 17, weight: .bold)
+            numberLabel.textAlignment = .right
+            cell.addSubview(numberLabel)
+            numberLabel.snp.makeConstraints { make in
+                make.right.top.equalToSuperview().inset(15)
+                make.left.equalTo(amountLabel.snp.right).inset(-5)
+            }
+            
+            let dateImageView = UIImageView(image: .date)
+            cell.addSubview(dateImageView)
+            dateImageView.snp.makeConstraints { make in
+                make.width.height.equalTo(20)
+                make.left.equalTo(leftView.snp.right).inset(-15)
+                make.top.equalTo(amountLabel.snp.bottom).inset(-5)
+            }
+            
+            let dateLabel = UILabel()
+            dateLabel.text = twoLastGamesArray[indexPath.row].date
+            dateLabel.textColor = .white.withAlphaComponent(0.7)
+            dateLabel.font = .systemFont(ofSize: 13, weight: .regular)
+            cell.addSubview(dateLabel)
+            dateLabel.snp.makeConstraints { make in
+                make.centerY.equalTo(dateImageView)
+                make.left.equalTo(dateImageView.snp.right).inset(-5)
+            }
+            
+            let timeImageView = UIImageView(image: .time)
+            cell.addSubview(timeImageView)
+            timeImageView.snp.makeConstraints { make in
+                make.width.height.equalTo(20)
+                make.left.equalTo(dateLabel.snp.right).inset(-15)
+                make.top.equalTo(amountLabel.snp.bottom).inset(-5)
+            }
+            let timeLabel = UILabel()
+            timeLabel.text = twoLastGamesArray[indexPath.row].time
+            timeLabel.textColor = .white.withAlphaComponent(0.7)
+            timeLabel.font = .systemFont(ofSize: 13, weight: .regular)
+            cell.addSubview(timeLabel)
+            timeLabel.snp.makeConstraints { make in
+                make.centerY.equalTo(dateImageView)
+                make.left.equalTo(timeImageView.snp.right).inset(-5)
+            }
+            
+            let typeGameLabel = UILabel()
+            typeGameLabel.text = "Type of game"
+            typeGameLabel.font = .systemFont(ofSize: 11, weight: .regular)
+            typeGameLabel.textColor = .white.withAlphaComponent(0.5)
+            cell.addSubview(typeGameLabel)
+            typeGameLabel.snp.makeConstraints { make in
+                make.left.equalTo(leftView.snp.right).inset(-15)
+                make.top.equalTo(timeImageView.snp.bottom).inset(-15)
+            }
+            
+            let typeLabel = UILabel()
+            typeLabel.text = twoLastGamesArray[indexPath.row].type
+            typeLabel.textColor = .white
+            typeLabel.font = .systemFont(ofSize: 12, weight: .regular)
+            cell.addSubview(typeLabel)
+            typeLabel.snp.makeConstraints { make in
+                make.left.equalTo(typeGameLabel.snp.left)
+                make.bottom.equalToSuperview().inset(15)
+            }
+            
+            let placeGameLabel = UILabel()
+            placeGameLabel.text = "Place"
+            placeGameLabel.font = .systemFont(ofSize: 11, weight: .regular)
+            placeGameLabel.textColor = .white.withAlphaComponent(0.5)
+            cell.addSubview(placeGameLabel)
+            placeGameLabel.snp.makeConstraints { make in
+                make.left.equalTo(cell.snp.centerX).offset(50)
+                make.top.equalTo(timeImageView.snp.bottom).inset(-15)
+            }
+            let placeLabel = UILabel()
+            placeLabel.text = twoLastGamesArray[indexPath.row].place
+            placeLabel.textColor = .white
+            placeLabel.font = .systemFont(ofSize: 12, weight: .regular)
+            cell.addSubview(placeLabel)
+            placeLabel.snp.makeConstraints { make in
+                make.left.equalTo(placeGameLabel.snp.left)
+                make.bottom.equalToSuperview().inset(15)
+            }
+            
+            
+            if twoLastGamesArray[indexPath.row].result == true {
+                imageView.image = .gain.withRenderingMode(.alwaysTemplate)
+                imageView.tintColor = UIColor(red: 225/255, green: 28/255, blue: 165/255, alpha: 1)
+                numberLabel.textColor = UIColor(red: 225/255, green: 28/255, blue: 165/255, alpha: 1)
+                numberLabel.text = "+$ \(twoLastGamesArray[indexPath.row].amount)"
+            } else {
+                imageView.image = .loss.withRenderingMode(.alwaysTemplate)
+                imageView.tintColor = .systemRed
+                numberLabel.textColor = .systemRed
+                numberLabel.text = "-$ \(twoLastGamesArray[indexPath.row].amount)"
+            }
+            
+            
+            
+            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "1", for: indexPath)
