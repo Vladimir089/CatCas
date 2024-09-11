@@ -411,7 +411,7 @@ class NewGameViewController: UIViewController {
     }
     
     func fillButtons() {
-        let items = ["Texas Hold'em", "Holdem 6+", "Chinese Poker", "Omaha", "Omaha hi-lo", "Stud", "Lowball", "Badugi", "H.O.R.S.E.", "Razz", "Draw Poker", "Other"]
+        let items = ["Texas Holdem", "Holdem 6+", "Chinese Poker", "Omaha", "Omaha hi-lo", "Stud", "Lowball", "Badugi", "H.O.R.S.E.", "Razz", "Draw Poker", "Other"]
         var tag = 0
         
         for i in items {

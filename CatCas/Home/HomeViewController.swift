@@ -318,7 +318,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func openFullAnalyce() {
-        print("an")
+        self.navigationController?.pushViewController(FullAnalyticsViewController(), animated: true)
     }
     
     @objc func openSettings() {

@@ -22,6 +22,7 @@
 		1546DC1A2C8F318300D70DBB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546DC192C8F318300D70DBB /* SettingsViewController.swift */; };
 		1546DC1D2C8F5BBD00D70DBB /* ListGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546DC1C2C8F5BBD00D70DBB /* ListGamesViewController.swift */; };
 		1546DC1F2C9084A300D70DBB /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546DC1E2C9084A300D70DBB /* NewGameViewController.swift */; };
+		1546DC222C91CFA500D70DBB /* FullAnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546DC212C91CFA500D70DBB /* FullAnalyticsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		1546DC192C8F318300D70DBB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1546DC1C2C8F5BBD00D70DBB /* ListGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGamesViewController.swift; sourceTree = "<group>"; };
 		1546DC1E2C9084A300D70DBB /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
+		1546DC212C91CFA500D70DBB /* FullAnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullAnalyticsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		1546DBED2C8C72BA00D70DBB /* CatCas */ = {
 			isa = PBXGroup;
 			children = (
+				1546DC202C91CF3C00D70DBB /* FullAnalytics */,
 				1546DC1B2C8F5BA900D70DBB /* ListGames */,
 				1546DC182C8F317500D70DBB /* Settings */,
 				1546DC0C2C8C8BFE00D70DBB /* Home */,
@@ -139,6 +142,14 @@
 				1546DC1E2C9084A300D70DBB /* NewGameViewController.swift */,
 			);
 			path = ListGames;
+			sourceTree = "<group>";
+		};
+		1546DC202C91CF3C00D70DBB /* FullAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				1546DC212C91CFA500D70DBB /* FullAnalyticsViewController.swift */,
+			);
+			path = FullAnalytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +239,7 @@
 				1546DC0B2C8C76EF00D70DBB /* OnbUserViewController.swift in Sources */,
 				1546DC152C8F110200D70DBB /* progressView.swift in Sources */,
 				1546DC1A2C8F318300D70DBB /* SettingsViewController.swift in Sources */,
+				1546DC222C91CFA500D70DBB /* FullAnalyticsViewController.swift in Sources */,
 				1546DC1F2C9084A300D70DBB /* NewGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
