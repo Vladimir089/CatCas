@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import Combine
+import CombineCocoa
 
 var gamesArr: [Game] = []
 
@@ -21,6 +22,8 @@ class HomeViewController: UIViewController {
     let progressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: 60, height: 60), lineWidth: 20, rounded: false)
     var biggestLostLabel, biggestWonLabel: UILabel?
     var collection: UICollectionView?
+    
+    var cancellable = [AnyCancellable]()
     
     var twoLastGamesArray: [Game] = []
     
@@ -50,6 +53,25 @@ class HomeViewController: UIViewController {
             make.left.equalToSuperview().inset(15)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(15)
         }
+        
+        let leftButton = UIButton(type: .system)
+        leftButton.backgroundColor = .white.withAlphaComponent(0.05)
+        let image = UIImage.strat.withRenderingMode(.alwaysTemplate)
+        leftButton.setImage(image.resize(targetSize: CGSize(width: 24, height: 24)), for: .normal)
+        leftButton.tintColor = UIColor(red: 225/255, green: 28/255, blue: 165/255, alpha: 1)
+        leftButton.layer.cornerRadius = 12
+        view.addSubview(leftButton)
+        leftButton.snp.makeConstraints { make in
+            make.top.equalTo(topLabel.snp.bottom).inset(-15)
+            make.height.equalTo(106)
+            make.width.equalTo(64)
+            make.left.equalToSuperview().inset(15)
+        }
+        leftButton.tapPublisher
+            .sink { _ in
+                self.navigationController?.pushViewController(StratViewController(), animated: true)
+            }
+            .store(in: &cancellable)
         
         let topView: UIView = {
             let view = UIView()
@@ -92,9 +114,10 @@ class HomeViewController: UIViewController {
         }()
         view.addSubview(topView)
         topView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(15)
+            make.right.equalToSuperview().inset(15)
             make.top.equalTo(topLabel.snp.bottom).inset(-15)
             make.height.equalTo(106)
+            make.left.equalTo(leftButton.snp.right).inset(-5)
         }
         
         let leftView: UIView = {

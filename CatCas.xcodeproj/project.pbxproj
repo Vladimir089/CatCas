@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150F47C82CA1FE4700A6D729 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 150F47C72CA1FE4700A6D729 /* CombineCocoa */; };
+		150F47CB2CA2005F00A6D729 /* StratViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47CA2CA2005F00A6D729 /* StratViewController.swift */; };
+		150F47CD2CA205AE00A6D729 /* AddStrategyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47CC2CA205AE00A6D729 /* AddStrategyViewController.swift */; };
+		150F47CF2CA21AB700A6D729 /* DetailStratViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47CE2CA21AB700A6D729 /* DetailStratViewController.swift */; };
 		1546DBEF2C8C72BA00D70DBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546DBEE2C8C72BA00D70DBB /* AppDelegate.swift */; };
 		1546DBF12C8C72BA00D70DBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546DBF02C8C72BA00D70DBB /* SceneDelegate.swift */; };
 		1546DBF62C8C72BA00D70DBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1546DBF42C8C72BA00D70DBB /* Main.storyboard */; };
@@ -26,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		150F47CA2CA2005F00A6D729 /* StratViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StratViewController.swift; sourceTree = "<group>"; };
+		150F47CC2CA205AE00A6D729 /* AddStrategyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStrategyViewController.swift; sourceTree = "<group>"; };
+		150F47CE2CA21AB700A6D729 /* DetailStratViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStratViewController.swift; sourceTree = "<group>"; };
 		1546DBEB2C8C72BA00D70DBB /* CatCas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatCas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1546DBEE2C8C72BA00D70DBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1546DBF02C8C72BA00D70DBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150F47C82CA1FE4700A6D729 /* CombineCocoa in Frameworks */,
 				1546DC082C8C73C500D70DBB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +65,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		150F47C92CA2005000A6D729 /* Trategies */ = {
+			isa = PBXGroup;
+			children = (
+				150F47CA2CA2005F00A6D729 /* StratViewController.swift */,
+				150F47CC2CA205AE00A6D729 /* AddStrategyViewController.swift */,
+				150F47CE2CA21AB700A6D729 /* DetailStratViewController.swift */,
+			);
+			path = Trategies;
+			sourceTree = "<group>";
+		};
 		1546DBE22C8C72B900D70DBB = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +94,7 @@
 		1546DBED2C8C72BA00D70DBB /* CatCas */ = {
 			isa = PBXGroup;
 			children = (
+				150F47C92CA2005000A6D729 /* Trategies */,
 				1546DC202C91CF3C00D70DBB /* FullAnalytics */,
 				1546DC1B2C8F5BA900D70DBB /* ListGames */,
 				1546DC182C8F317500D70DBB /* Settings */,
@@ -170,6 +189,7 @@
 			name = CatCas;
 			packageProductDependencies = (
 				1546DC072C8C73C500D70DBB /* SnapKit */,
+				150F47C72CA1FE4700A6D729 /* CombineCocoa */,
 			);
 			productName = CatCas;
 			productReference = 1546DBEB2C8C72BA00D70DBB /* CatCas.app */;
@@ -201,6 +221,7 @@
 			mainGroup = 1546DBE22C8C72B900D70DBB;
 			packageReferences = (
 				1546DC062C8C73C500D70DBB /* XCRemoteSwiftPackageReference "SnapKit" */,
+				150F47C62CA1FE4700A6D729 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 			);
 			productRefGroup = 1546DBEC2C8C72BA00D70DBB /* Products */;
 			projectDirPath = "";
@@ -230,13 +251,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1546DC1D2C8F5BBD00D70DBB /* ListGamesViewController.swift in Sources */,
+				150F47CF2CA21AB700A6D729 /* DetailStratViewController.swift in Sources */,
 				1546DC172C8F1FB800D70DBB /* CombinationsViewController.swift in Sources */,
 				1546DC0E2C8C8C0A00D70DBB /* HomeViewController.swift in Sources */,
+				150F47CD2CA205AE00A6D729 /* AddStrategyViewController.swift in Sources */,
 				1546DC052C8C731800D70DBB /* LoadViewController.swift in Sources */,
 				1546DBEF2C8C72BA00D70DBB /* AppDelegate.swift in Sources */,
 				1546DC102C8F0AD000D70DBB /* Model.swift in Sources */,
 				1546DBF12C8C72BA00D70DBB /* SceneDelegate.swift in Sources */,
 				1546DC0B2C8C76EF00D70DBB /* OnbUserViewController.swift in Sources */,
+				150F47CB2CA2005F00A6D729 /* StratViewController.swift in Sources */,
 				1546DC152C8F110200D70DBB /* progressView.swift in Sources */,
 				1546DC1A2C8F318300D70DBB /* SettingsViewController.swift in Sources */,
 				1546DC222C91CFA500D70DBB /* FullAnalyticsViewController.swift in Sources */,
@@ -404,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = k.CatCas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -435,7 +459,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = k.CatCas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -471,6 +495,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		150F47C62CA1FE4700A6D729 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
 		1546DC062C8C73C500D70DBB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -482,6 +514,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		150F47C72CA1FE4700A6D729 /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 150F47C62CA1FE4700A6D729 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
 		1546DC072C8C73C500D70DBB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1546DC062C8C73C500D70DBB /* XCRemoteSwiftPackageReference "SnapKit" */;

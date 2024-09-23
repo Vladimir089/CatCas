@@ -16,7 +16,7 @@ class LoadViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 225/255, green: 28/255, blue: 165/255, alpha: 1)
         createInterface()
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { [self] _ in //поменять тайминтервал на 7
+        timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: false, block: { [self] _ in //поменять тайминтервал на 7
             timer?.invalidate()
             timer = nil
             if isBet == false {

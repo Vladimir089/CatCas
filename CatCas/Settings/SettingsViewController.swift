@@ -107,7 +107,7 @@ class SettingsViewController: UIViewController {
     
     @objc func policy() {
         let webVC = WebViewController()
-        webVC.urlString = "pol"
+        webVC.urlString = "https://www.termsfeed.com/live/dd316bc7-5853-41f7-940b-a9453626b8d6"
         present(webVC, animated: true, completion: nil)
     }
     
@@ -115,7 +115,7 @@ class SettingsViewController: UIViewController {
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         } else {
-            if let url = URL(string: "id") {
+            if let url = URL(string: "https://apps.apple.com/app/catcas/id6698876340") {
                 if UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
@@ -124,7 +124,7 @@ class SettingsViewController: UIViewController {
     }
     
     @objc func shareApps() {
-        let appURL = URL(string: "id")!
+        let appURL = URL(string: "https://apps.apple.com/app/catcas/id6698876340")!
         let activityViewController = UIActivityViewController(activityItems: [appURL], applicationActivities: nil)
         
         // Настройка для показа в виде popover на iPad
